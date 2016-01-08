@@ -1,0 +1,13 @@
+# Name of your blog (this will show up at the top of your page and in the RSS feed)
+baseurl: /
+#we can use any port number to run multiple project simultaneously
+#port: 4001
+sass:
+    sass_dir: _scss
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "global"

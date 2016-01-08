@@ -1,0 +1,16 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <h1 class="logo"><a href="/">
+                    <img src="imgs/logo.png" alt="Arekibo"/></a></h1>
+                <span id="toggleMenu" class="hidden-sm hidden-md hidden-lg">Menu</span>
+                <span id="toggleSearch" class="hidden-sm hidden-md hidden-lg"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+            <nav id="megaMenu" class="col-sm-10">
+                {% include MegaMenu.html %}
+            </nav>
+        </div>
+        {% include MenuSearchBox.html %}
+    </div>
+</header>

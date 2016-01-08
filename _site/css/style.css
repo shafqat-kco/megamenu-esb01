@@ -1,0 +1,259 @@
+/*
+ * a small mixin for easy use of rem with px as fallback
+ * usage: @include x-rem(font-size, 14px)
+ * usage: @include x-rem(margin, 0 12px 2 1.2)
+ * usage: @include x-rem(padding, 1.5 24px)
+ *
+ * thanks to Eric Meyer for https://github.com/ericam/susy
+ * and Hans Christian Reinl for http://drublic.de/blog/rem-fallback-sass-less/
+ */
+/*
+ * Linear gradient generator. 'start' is top, 'end' is bottom. IE9 support not included using CSS SVG include.
+ *
+ * Use http://www.colorzilla.com/gradient-editor/ to generate IE9 SVG element
+ *
+ */
+body {
+  background-color: #eeeee2; }
+
+main {
+  padding: 30px 0; }
+
+header {
+  background-color: #ffffff; }
+  header .logo {
+    margin: 0;
+    padding: 0; }
+
+#megaMenu {
+  margin: 0 0 0 0;
+  padding: 0 15px; }
+  #megaMenu ul li a:hover, #megaMenu ul li a:focus, #megaMenu ul li a:active {
+    text-decoration: underline; }
+  #megaMenu > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #megaMenu > ul > li {
+      padding: 0 13px 0 12px; }
+      #megaMenu > ul > li > a {
+        font-size: 1.22em;
+        padding: 32px 0;
+        color: #0076b7;
+        border-bottom: 4px solid transparent; }
+        #megaMenu > ul > li > a:hover, #megaMenu > ul > li > a:active {
+          text-decoration: none;
+          border-bottom: 4px solid #0076b7; }
+          #megaMenu > ul > li > a:hover:after, #megaMenu > ul > li > a:active:after {
+            margin: auto;
+            content: url("imgs/blue-up-arrow.png"); }
+        #megaMenu > ul > li > a:focus {
+          border-bottom: 4px solid transparent;
+          text-decoration: none; }
+          #megaMenu > ul > li > a:focus:after {
+            content: ""; }
+        #megaMenu > ul > li > a.selected:before {
+          content: "";
+          background-color: #0076b7; }
+        #megaMenu > ul > li > a.selected:hover:before {
+          background-color: transparent; }
+      #megaMenu > ul > li .grey-box {
+        padding: 0;
+        background-color: #f1f0f0;
+        box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.28); }
+        #megaMenu > ul > li .grey-box .container .row .sub-menu {
+          padding: 15px 0 15px;
+          background: url("imgs/grey-bg.jpg") repeat-y 50% 0;
+          border-right: 1px solid #d9d9d9; }
+          #megaMenu > ul > li .grey-box .container .row .sub-menu ul {
+            padding: 0;
+            margin: 0;
+            list-style: none; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu ul li a {
+              padding: 6px 25px 5px 15px;
+              font-size: 1em;
+              line-height: 1.14;
+              color: #363636; }
+          #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li {
+            padding: 5px 0; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.active {
+              background-color: #ffffff; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub > a:after {
+              content: url("imgs/blue-right-arrow.png"); }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub ul {
+              padding: 15px 0; }
+              #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub ul li {
+                padding: 5px 1px; }
+                #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub ul li a {
+                  line-height: 1.14; }
+          #megaMenu > ul > li .grey-box .container .row .sub-menu.no-line {
+            background: none; }
+        #megaMenu > ul > li .grey-box .container .row .call-to-action {
+          padding: 30px 15px; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action .col-sm-6:first-of-type {
+            padding-right: 0; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action .col-sm-6:last-of-type {
+            padding-left: 23px;
+            padding-right: 0; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action img {
+            border-radius: 4px; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action h3 {
+            margin-top: 2px;
+            margin-bottom: 7px; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action p {
+            margin-bottom: 16px;
+            line-height: 1.78; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action a {
+            padding: 8px 26px; }
+      #megaMenu > ul > li.active > a {
+        border-bottom: 4px solid #0076b7; }
+        #megaMenu > ul > li.active > a:after {
+          content: url("imgs/blue-up-arrow.png"); }
+        #megaMenu > ul > li.active > a.selected:before {
+          display: none; }
+      #megaMenu > ul > li.search {
+        background-color: transparent; }
+        #megaMenu > ul > li.search > a {
+          padding: 35px 0 30px;
+          border-color: transparent; }
+          #megaMenu > ul > li.search > a:hover, #megaMenu > ul > li.search > a:focus, #megaMenu > ul > li.search > a:active {
+            text-decoration: none;
+            border-color: transparent; }
+      #megaMenu > ul > li:last-of-type {
+        padding-right: 0; }
+
+.search-grey-box {
+  background-color: #f1f0f0;
+  border: 1px solid #e3e3e3;
+  border-radius: 0 0 4px 4px; }
+  .search-grey-box .container {
+    padding: 13px 9px 12px 14px; }
+    .search-grey-box .container .input-group .form-control {
+      border: 1px solid #d9d9d9;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: #363636;
+      padding-left: 15px;
+      border-radius: 4px 0 0 4px; }
+      .search-grey-box .container .input-group .form-control:focus {
+        outline: 0;
+        box-shadow: 0 0 0 0;
+        border-color: #d9d9d9; }
+    .search-grey-box .container .input-group .input-group-addon {
+      background-color: #0076b7;
+      color: #ffffff;
+      font-size: 16px;
+      border-color: #0076b7;
+      border-radius: 0 4px 4px 0; }
+      .search-grey-box .container .input-group .input-group-addon:focus {
+        outline: 0;
+        box-shadow: 0 0 2px #0076b7;
+        text-decoration: underline; }
+
+@media (max-width: 640px) {
+  header {
+    padding-bottom: 7px; }
+    header .logo {
+      margin-top: 7px;
+      margin-left: -8px; }
+
+  #toggleMenu {
+    border: 2px solid #0076b7;
+    color: #0076b7;
+    line-height: 28px;
+    font-size: 1.22em;
+    border-radius: 4px;
+    margin: 35px 0 0 0;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center; }
+
+  #toggleSearch {
+    font-size: 27px;
+    margin-right: 13px;
+    margin-top: 35px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    /*user-select: none;*/
+    color: #0076b7; }
+
+  #megaMenu {
+    padding: 0; }
+    #megaMenu > ul {
+      background-color: #f1f0f0; }
+      #megaMenu > ul.top-nav-items > li > a {
+        color: #363636;
+        font-size: 14px;
+        font-family: Arial; }
+        #megaMenu > ul.top-nav-items > li > a:before, #megaMenu > ul.top-nav-items > li > a:after {
+          content: ""; }
+      #megaMenu > ul.mega-menu {
+        border-top: 1px solid #d9d9d9; }
+      #megaMenu > ul > li {
+        padding: 8px 0;
+        border-bottom: 1px solid #d9d9d9; }
+        #megaMenu > ul > li > a:before {
+          content: url("imgs/blue-right-arrow.png");
+          background-color: transparent; }
+        #megaMenu > ul > li > .grey-box .container .row .sub-menu {
+          padding: 0 0 15px;
+          background: none;
+          border-right: 0; }
+          #megaMenu > ul > li > .grey-box .container .row .sub-menu ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #d9d9d9; }
+            #megaMenu > ul > li > .grey-box .container .row .sub-menu ul li:first-of-type {
+              border-top: 1px solid #d9d9d9; }
+          #megaMenu > ul > li > .grey-box .container .row .sub-menu > ul > li.sub ul {
+            padding: 0;
+            background-color: #f1f0f0; }
+          #megaMenu > ul > li > .grey-box .container .row .sub-menu > ul > li.active {
+            background-color: #f1f0f0; }
+        #megaMenu > ul > li > .grey-box .container .navbtn .col-xs-4 {
+          border-right: 1px solid #d9d9d9; }
+        #megaMenu > ul > li > .grey-box .container .navbtn .col-xs-4, #megaMenu > ul > li > .grey-box .container .navbtn .col-xs-8 {
+          padding: 15px 15px; }
+          #megaMenu > ul > li > .grey-box .container .navbtn .col-xs-4 p, #megaMenu > ul > li > .grey-box .container .navbtn .col-xs-8 p {
+            margin: 0;
+            font-size: 1.22em;
+            line-height: 34px;
+            padding: 0;
+            color: #0076b7; }
+        #megaMenu > ul > li > a {
+          padding: 0 15px;
+          border-bottom: 0 !important; }
+          #megaMenu > ul > li > a:after {
+            content: ""; }
+          #megaMenu > ul > li > a:hover, #megaMenu > ul > li > a:focus, #megaMenu > ul > li > a:active {
+            border-color: transparent !important; }
+            #megaMenu > ul > li > a:hover:after, #megaMenu > ul > li > a:focus:after, #megaMenu > ul > li > a:active:after {
+              content: ""; }
+    #megaMenu .btn-dark-blue {
+      line-height: 36px;
+      padding: 0;
+      vertical-align: middle;
+      text-align: center;
+      background-color: #0076b7;
+      color: #ffffff; }
+
+  .search-grey-box {
+    border-top: 1px solid #d9d9d9;
+    border-radius: 0;
+    border: 0;
+    margin-top: 12px;
+    margin-bottom: -7px; }
+    .search-grey-box .container {
+      padding: 10px 15px 10px !important; }
+      .search-grey-box .container .input-group .form-control {
+        padding-left: 10px;
+        border-radius: 4px 0 0 4px; }
+      .search-grey-box .container .input-group .input-group-addon {
+        line-height: 40px;
+        padding: 0;
+        vertical-align: middle;
+        text-align: center; } }

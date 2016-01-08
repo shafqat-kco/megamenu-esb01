@@ -1,0 +1,98 @@
+first:
+ - page: Who We Are
+   second:
+     - page: About ESB
+     - page: Our Purpose
+     - page: Our Startegy
+     - page: Our People
+       third:
+        - page: ESB Staff
+        - page: ESB Board
+        - page: Executive Team
+     - page: Our History
+       third:
+        - page: History Timeline
+        - page: ESB Archive
+     - page: Investor Relations
+       third:
+        - page: Overveiw
+        - page: Our Investment Proposition
+        - page: Our Performance
+        - page: Results, Presentations & Investor Updates
+        - page: Annual Reports
+        - page: Debt
+        - page: Contacts
+     - page: Procurement
+       third:
+       - page: What we Procure
+       - page: How we Procure
+       - page: Procurement Policy
+       - page: Frequently Asked Questions
+       - page: Procurement Contacts
+     - page: Projects and Joint Ventures
+     - page: Corporate Governance
+       third:
+       - page: Corporate Governance Overview
+       - page: ESB's Code of Ethics and Practice
+       - page: ESB Internal Controls
+       - page: Internal Audit Charter
+       - page: Audit and Risk Committee
+     - page: Official Language Scheme
+   callToAction:
+     image: placeholder.png
+     title: How we work
+     intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat scelerisque massa eu finibus. Nam ac bibendum nibh. Mauris sed turpis libero. Etiam urna justo, facilisis vel ipsum in, varius dignissim risus. Phasellus dapibus elementum justo eget ullamcorper. Aenean convallis laoreet odio quis lobortis.
+     button: Read More
+ - page: Our Businesses
+   second:
+     - page: ESB Group
+       third:
+        - page: Overview
+        - page: Telecoms
+        - page: Generation & Energy Trading
+     - page: ESB Networks
+     - page: ESB International
+     - page: Electric Ireland
+     - page: NIE Networks
+     - page: Innovation
+     - page: ecars
+       third:
+        - page: ecars Overview
+        - page: About Us
+        - page: Charge Point Map
+        - page: Support
+ - page: Being Innovative
+   second:
+    - page: Overview
+    - page: Future Energy
+    - page: Collaboration & Partnerships
+      third:
+        - page: About C&P
+        - page: ESB Research, Partners and Projects
+    - page: Innovators
+      third:
+        - page: Innovators at ESB
+        - page: Spark of Genius
+    - page: Investing in Clean-Tech & Start-Ups
+    - page: Future Home & Business
+    - page: News
+ - page: Acting Responsibly
+   second:
+    - page: Sustainability
+      third:
+        - page: Sustainability Overview
+        - page: Our Sustainability Strategy
+        - page: Our Progress
+        - page: Sustainability in ESB
+        - page: Sustainability in Action
+    - page: Environment
+    - page: Keeping Safe
+      third:
+        - page: Keeping Safe Overview
+        - page: ESB's Health & Safety Policies and Performance
+        - page: ESB and Public Safety
+        - page: ESB Safety Leadership
+        - page: ESB Employee Health and Wellbeing
+    - page: Community Innovation and the Arts
+    - page: Fisheries
+ - page: Energy Insights

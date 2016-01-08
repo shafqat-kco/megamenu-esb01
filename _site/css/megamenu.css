@@ -1,0 +1,242 @@
+main {
+  min-height: 1000px; }
+
+header {
+  clear: both;
+  position: relative; }
+  header .logo {
+    width: 90px;
+    height: 90px; }
+    header .logo a {
+      display: block;
+      width: 90px;
+      height: 90px; }
+      header .logo a img {
+        display: block;
+        width: 90px;
+        height: 90px; }
+
+#megaMenu {
+  position: inherit; }
+  #megaMenu ul {
+    list-style: none; }
+  #megaMenu > ul {
+    float: right; }
+    #megaMenu > ul > li {
+      float: left; }
+      #megaMenu > ul > li > a {
+        display: inline-block;
+        position: relative; }
+        #megaMenu > ul > li > a:hover:after, #megaMenu > ul > li > a:active:after {
+          width: 11px;
+          height: 6px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 9px; }
+        #megaMenu > ul > li > a.selected:before {
+          height: 2px;
+          width: 100%;
+          position: absolute;
+          bottom: 30px; }
+      #megaMenu > ul > li .grey-box {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 92px;
+        z-index: 9999;
+        display: none; }
+        #megaMenu > ul > li .grey-box .container .row {
+          display: flex; }
+          #megaMenu > ul > li .grey-box .container .row .sub-menu, #megaMenu > ul > li .grey-box .container .row .call-to-action {
+            display: block;
+            float: left;
+            min-height: 350px; }
+          #megaMenu > ul > li .grey-box .container .row .sub-menu {
+            width: 33.333%; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu ul li a {
+              display: inline-block;
+              width: 100%; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu > ul {
+              width: 49.5%; }
+              #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub > a {
+                position: relative; }
+                #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub > a:after {
+                  position: absolute;
+                  right: 15px;
+                  top: 7px; }
+              #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.sub ul {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                max-height: 315px;
+                width: 190px;
+                max-width: 190px; }
+              #megaMenu > ul > li .grey-box .container .row .sub-menu > ul > li.active ul {
+                display: block; }
+            #megaMenu > ul > li .grey-box .container .row .sub-menu.no-line > ul {
+              width: 100%; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action .col-sm-6 {
+            min-height: 220px; }
+          #megaMenu > ul > li .grey-box .container .row .call-to-action img {
+            float: left;
+            display: block;
+            width: auto;
+            height: auto;
+            max-height: 227px; }
+      #megaMenu > ul > li.active > a:after {
+        width: 11px;
+        height: 6px;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 9px; }
+      #megaMenu > ul > li.active.search a:after {
+        display: none; }
+      #megaMenu > ul > li.active .grey-box {
+        display: block; }
+      #megaMenu > ul > li.search > a:hover:after, #megaMenu > ul > li.search > a:focus:after, #megaMenu > ul > li.search > a:active:after {
+        display: none; }
+      #megaMenu > ul > li.search:after {
+        display: none; }
+
+.search-grey-box {
+  width: 554px;
+  left: auto;
+  right: 13px;
+  display: none;
+  float: right;
+  position: absolute;
+  z-index: 9999; }
+  .search-grey-box.active {
+    display: block; }
+  .search-grey-box .container {
+    width: auto !important; }
+    .search-grey-box .container .input-group {
+      height: 59px; }
+      .search-grey-box .container .input-group .form-control {
+        float: none;
+        height: 59px;
+        width: 462px; }
+      .search-grey-box .container .input-group .input-group-addon {
+        height: 59px;
+        min-width: 67px; }
+
+@media (max-width: 640px) {
+  header {
+    position: relative; }
+    header .logo {
+      float: left; }
+
+  #toggleMenu {
+    display: table-cell;
+    width: 62px;
+    height: 31px;
+    float: right; }
+
+  #toggleSearch {
+    float: right; }
+
+  #megaMenu {
+    clear: both;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    top: 104px; }
+    #megaMenu > ul {
+      float: none;
+      width: 100%; }
+      #megaMenu > ul > li {
+        float: none;
+        width: 100%; }
+        #megaMenu > ul > li > a:before {
+          position: absolute;
+          right: 20px;
+          top: 0;
+          width: auto; }
+        #megaMenu > ul > li > a {
+          position: relative;
+          width: 100%;
+          display: inline-block; }
+          #megaMenu > ul > li > a.selected:before {
+            display: none; }
+        #megaMenu > ul > li > .grey-box {
+          top: 1px; }
+          #megaMenu > ul > li > .grey-box .container .row .sub-menu {
+            width: 100%; }
+            #megaMenu > ul > li > .grey-box .container .row .sub-menu ul {
+              width: 100%; }
+            #megaMenu > ul > li > .grey-box .container .row .sub-menu > ul > li.sub ul {
+              width: 100%;
+              max-width: 100%;
+              z-index: 1;
+              left: 0;
+              display: none; }
+              #megaMenu > ul > li > .grey-box .container .row .sub-menu > ul > li.sub ul.active {
+                display: block; }
+          #megaMenu > ul > li > .grey-box .container .row .call-to-action {
+            display: none; }
+        #megaMenu > ul > li.search {
+          display: none; }
+    #megaMenu .btn-dark-blue {
+      width: 70px;
+      height: 34px;
+      max-height: 34px;
+      display: block; }
+    #megaMenu.active {
+      display: block; }
+
+  .search-grey-box {
+    width: 100%;
+    right: 0;
+    position: relative; }
+    .search-grey-box .container .input-group {
+      height: 38px; }
+      .search-grey-box .container .input-group .form-control {
+        width: 100%;
+        height: 38px; }
+      .search-grey-box .container .input-group .input-group-addon {
+        height: 38px;
+        min-width: 45px;
+        width: 45px;
+        display: table-cell; }
+    .search-grey-box.active {
+      display: block; } }
+@media (min-width: 641px) and (max-width: 1199px) {
+  body header, body footer, body .search-box {
+    min-width: 1170px !important;
+    width: 100% !important; }
+  body header .col-sm-3 {
+    width: 20%; }
+  body header .col-sm-9 {
+    width: 80%; }
+  body #megaMenu > ul > li .grey-box .container .row .call-to-action img {
+    width: 100%; } }
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  .cookie, .tns, #heroBanner, header, footer, .breadcrumbs, #mediaBanner, #generation-map, .search-box, #gray-sec {
+    min-width: 1200px !important;
+    width: 100% !important; }
+
+  .search-grey-box .container {
+    width: auto !important;
+    min-width: 0 !important; }
+
+  #megaMenu > ul > li.active > a:after {
+    bottom: 11px; } }
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+  .cookie, .tns, #heroBanner, header, footer, .breadcrumbs, #mediaBanner, #generation-map, .search-box, #gray-sec {
+    min-width: 1200px !important;
+    width: 100% !important; }
+
+  .search-grey-box .container {
+    width: auto !important;
+    min-width: 0 !important; }
+
+  #megaMenu > ul > li.active > a:after {
+    bottom: 11px; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #megaMenu > ul > li.active > a:after {
+    bottom: 11px; } }

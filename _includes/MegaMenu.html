@@ -1,0 +1,76 @@
+<ul class="mega-menu" role="menu" aria-label="Main menu">
+    {% for menu in site.data.menu.first%}
+    {% assign firstLink = menu.page | replace: ' ', '-' %}
+    {%assign activeLink ='a'%}
+    {% if page.activeIndex == forloop.index %}
+    {%assign activeLink = 'selected'%}
+    {%endif%}
+    {% if menu.second | size > 0 %}
+    {%assign firstLink ='#'%}
+    {%endif%}
+    <li>
+        <a id="item{{forloop.index | minus: 1}}" class="{{activeLink}}" href="{{ firstLink }}"><span>{{menu.page}}</span></a>
+        {% if menu.second | size > 0 %}
+        <div class="grey-box">
+            <div class="container">
+                <div class="navbtn row hidden-sm hidden-md hidden-lg">
+                    <div class="col-xs-4">
+                        <a href="#" class="btn btn-dark-blue button-text-small"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Back</a>
+                    </div>
+                    <div class="col-xs-8">
+                        <p class="title">ACS</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 sub-menu ">
+                        <ul role="menu" aria-label="second level menu">
+                            {% for s in menu.second%}
+                            {%assign thirdLevel =''%}
+                            {% assign secondLink = s.page | replace: ' ', '-' %}
+                            {% if s.third | size > 0 %}
+                            {%assign thirdLevel ='sub'%}
+                            {% assign secondLink = '#' %}
+                            {%endif%}
+                            <li class="{{thirdLevel}}">
+                                <a tabindex="0" href="{{ secondLink }}">{{s.page}}</a>
+                                {% if s.third | size > 0 %}
+                                <ul role="menu" aria-label="third level menu">
+                                    {% for t in s.third%}
+                                    <li>
+                                        {% assign thirdLink = t.page | replace: ' ', '-' %}
+                                        <a href="{{ thirdLink }}">{{t.page}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-8 call-to-action">
+                        {% if menu.callToAction | size > 0 %}
+                        <div class="col-sm-6">
+                            <img src="imgs/{{menu.callToAction.image}}" alt='image'/>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>{{menu.callToAction.title}}</h3>
+
+                            <p>{{menu.callToAction.intro}}</p>
+                            <a class="btn btn-dark-blue" href="#/">{{menu.callToAction.button}}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+    </li>
+    {% endfor %}
+    <li class="search">
+        <a id="itemSearch" href="#" aria-label="Search in Site"><span class="glyphicon glyphicon-search"><span
+                class="sr-only">Search in Site</span></span></a>
+    </li>
+</ul>

@@ -1,0 +1,208 @@
+/*
+ * a small mixin for easy use of rem with px as fallback
+ * usage: @include x-rem(font-size, 14px)
+ * usage: @include x-rem(margin, 0 12px 2 1.2)
+ * usage: @include x-rem(padding, 1.5 24px)
+ *
+ * thanks to Eric Meyer for https://github.com/ericam/susy
+ * and Hans Christian Reinl for http://drublic.de/blog/rem-fallback-sass-less/
+ */
+@mixin x-rem($property, $values) {
+  // Create a couple of empty lists as output buffers.
+  //$base-font-size: 16px; // should be consistent with your html/body font-size
+  $px-values: ();
+  $em-values: ();
+  $rem-values: ();
+
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $em-values: join($em-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from base-font-size
+      $new-rem-value: $value / $base-font-size;
+      $new-em-value: $new-rem-value;
+      $px-values: join($px-values, round($value));
+      $em-values: join($em-values, #{$new-em-value}em);
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if $value == auto or $value == inherit {
+      // auto or inherit - don't add px or rem - from comment under gist
+      $px-values: join($px-values, $value);
+      $em-values: join($em-values, $value);
+      $rem-values: join($rem-values, $value);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $base-font-size));
+      $em-values: join($em-values, #{$value}em);
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  // output the converted rules
+  #{$property}: $px-values;
+  //#{$property}: $em-values;
+  //#{$property}: $rem-values;
+}
+
+/*
+ * Linear gradient generator. 'start' is top, 'end' is bottom. IE9 support not included using CSS SVG include.
+ *
+ * Use http://www.colorzilla.com/gradient-editor/ to generate IE9 SVG element
+ *
+ */
+
+@mixin user-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /*user-select: none;*/
+}
+
+@mixin order($order) {
+  -webkit-box-ordinal-group: $order;
+  -moz-box-ordinal-group: $order;
+  -ms-flex-order: $order;
+  -webkit-order: $order;
+  order: $order;
+}
+
+@mixin mxTransition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -ms-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+
+@mixin gradient($color1, $color2) {
+  background: $color1;
+  background: -webkit-linear-gradient($color1, $color2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to bottom, $color1, $color2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to bottom, $color1, $color2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $color1, $color2); /* Standard syntax */
+}
+
+@mixin twoColorGradient($color1, $percent1, $color2, $percent2) {
+  background: -webkit-linear-gradient(top, $color1, $color1 $percent1, $whiteColor $percent2, $whiteColor);
+  background: -o-linear-gradient(top, $color1, $color1 $percent1, $whiteColor $percent2, $whiteColor); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(top, $color1, $color1 $percent1, $whiteColor $percent2, $whiteColor); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(top, $color1, $color1 $percent1, $whiteColor $percent2, $whiteColor); /* Standard syntax */
+}
+
+@mixin borderRadius($radius) {
+  /*-moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;*/
+  border-radius: $radius;
+}
+
+@mixin prefix($name, $argument...) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+@mixin remSize($property, $values) {
+  // Create a couple of empty lists as output buffers.
+  $base-font-size: 10px; // should be consistent with your html/body font-size
+  $px-values: ();
+  $em-values: ();
+  $rem-values: ();
+
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $em-values: join($em-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from base-font-size
+      $new-rem-value: $value / $base-font-size;
+      $new-em-value: $new-rem-value;
+      $px-values: join($px-values, round($value));
+      $em-values: join($em-values, #{$new-em-value}em);
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if $value == auto or $value == inherit {
+      // auto or inherit - don't add px or rem - from comment under gist
+      $px-values: join($px-values, $value);
+      $em-values: join($em-values, $value);
+      $rem-values: join($rem-values, $value);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $base-font-size));
+      $em-values: join($em-values, #{$value}em);
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  // output the converted rules
+  #{$property}: $px-values;
+  #{$property}: $em-values;
+  #{$property}: $rem-values;
+}
+
+@mixin cssColumns($n) {
+  -webkit-column-count: $n; /* Chrome, Safari, Opera */
+  -moz-column-count: $n; /* Firefox */
+  column-count: $n;
+}
+
+@mixin avoidColumnBreak() {
+
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+}
+
+@mixin columnGap($n) {
+  -webkit-column-gap: $n; /* Chrome, Safari, Opera */
+  -moz-column-gap: $n; /* Firefox */
+  column-gap: $n;
+}
+
+@mixin columnWidth($n) {
+  -webkit-column-width: $n; /* Chrome, Safari, Opera */
+  -moz-column-width: $n; /* Firefox */
+  column-width: $n;
+}
+
+@mixin transitionFade($duration){
+  transition: opacity $duration ease-in-out;
+  -moz-transition: opacity $duration ease-in-out;
+  -webkit-transition: opacity $duration ease-in-out;
+}
+@mixin use-icomoon() {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin use-glyphicon() {
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  //-webkit-font-smoothing: antialiased;
+}
